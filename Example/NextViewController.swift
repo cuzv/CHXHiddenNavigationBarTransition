@@ -14,13 +14,13 @@ class NextViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        chx_prefersCurrentNavigationBarHidden = false
+        chx_prefersNavigationBarHidden = false
     }
 
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        chx_prefersCurrentNavigationBarHidden = !chx_prefersCurrentNavigationBarHidden
-        chx_setNavigationBarHidden(!chx_prefersCurrentNavigationBarHidden, animated: true)
-        
+//        chx_prefersNavigationBarHidden = !chx_prefersNavigationBarHidden
+        chx_setNavigationBarHidden(!chx_prefersNavigationBarHidden, animated: true)
+        chx_prefersStatusBarHidden = !chx_prefersStatusBarHidden
     }
  }

@@ -14,8 +14,10 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        chx_prefersdStatusBarStyle = .LightContent
-        chx_prefersCurrentNavigationBarHidden = true
+        view.backgroundColor = UIColor.cyanColor()
+        
+        chx_prefersStatusBarStyle = .LightContent
+        chx_prefersNavigationBarHidden = true
     }
 
 }
