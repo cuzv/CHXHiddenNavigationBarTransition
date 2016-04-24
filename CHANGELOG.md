@@ -8,3 +8,7 @@ Deal with navigation bar and status bar animation when some page set navigation 
 -   Fix typo
 -   Add `chx_prefersStatusBarHidden`
 -   Rename `chx_prefersCurrentNavigationBarHidden` to `chx_prefersNavigationBarHidden`
+
+### 0.3.0
+
+-   Add `chx_prefersNavigationBarHairlineHidden`

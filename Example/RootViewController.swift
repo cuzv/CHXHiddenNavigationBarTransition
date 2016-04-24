@@ -17,7 +17,7 @@ class RootViewController: UIViewController {
         view.backgroundColor = UIColor.cyanColor()
         
         chx_prefersStatusBarStyle = .LightContent
-        chx_prefersNavigationBarHidden = true
+//        chx_prefersNavigationBarHidden = true
     }
 
 }

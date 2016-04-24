@@ -51,5 +51,11 @@
 /// Affect current view controller.
 - (void)chx_setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
+/// Set perferred navigationBar bottom line shoulde hidden or not. Defatule value is false.
+/// Will update state when `viewDidAppear:`, so you need setup before that mehod call.
+/// If controller's view on window, will update immediately.
+/// Affect current view controller.
+@property (nonatomic, assign) BOOL chx_prefersNavigationBarHairlineHidden;
 
 @end
+

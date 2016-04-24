@@ -15,12 +15,14 @@ class NextViewController: UIViewController {
         super.viewDidLoad()
 
         chx_prefersNavigationBarHidden = false
+        chx_prefersNavigationBarHairlineHidden = true
     }
 
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 //        chx_prefersNavigationBarHidden = !chx_prefersNavigationBarHidden
-        chx_setNavigationBarHidden(!chx_prefersNavigationBarHidden, animated: true)
-        chx_prefersStatusBarHidden = !chx_prefersStatusBarHidden
+//        chx_setNavigationBarHidden(!chx_prefersNavigationBarHidden, animated: true)
+//        chx_prefersStatusBarHidden = !chx_prefersStatusBarHidden
+        chx_prefersNavigationBarHairlineHidden = !chx_prefersNavigationBarHairlineHidden
     }
  }

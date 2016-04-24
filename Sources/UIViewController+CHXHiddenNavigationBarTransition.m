@@ -50,6 +50,7 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
 
 - (void)_chx_viewDidAppear:(BOOL)animated {
     [self setNeedsStatusBarAppearanceUpdate];
+    [self _chx_hiddenNavigationBarHairlineIfNeeded];
     [self _chx_viewDidAppear:animated];
 }
 
@@ -99,15 +100,25 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
     objc_setAssociatedObject(self, @selector(chx_prefersNavigationBarHidden), @(chx_prefersNavigationBarHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.view.window) {
         [self _chx_hiddenNavigationBarDependsOnCurrentHidden:self.navigationController.navigationBarHidden
-                                                      prefersHidden:chx_prefersNavigationBarHidden
-                                                           animated:NO];
+                                               prefersHidden:chx_prefersNavigationBarHidden
+                                                    animated:NO];
     }
 }
-
 
 - (void)chx_setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated {
     [self _chx_setNavigationBarHidden:hidden animated:animated];
     self.chx_prefersNavigationBarHidden = hidden;
+}
+
+- (BOOL)chx_prefersNavigationBarHairlineHidden {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setChx_prefersNavigationBarHairlineHidden:(BOOL)chx_prefersNavigationBarHairlineHidden {
+    objc_setAssociatedObject(self, @selector(chx_prefersNavigationBarHairlineHidden), @(chx_prefersNavigationBarHairlineHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (self.view.window) {
+        [self _chx_hiddenNavigationBarHairlineIfNeeded];
+    }
 }
 
 #pragma mark - Helpers
@@ -120,8 +131,8 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
         return;
     }
     [self _chx_hiddenNavigationBarDependsOnCurrentHidden:self.navigationController.navigationBarHidden
-                                                  prefersHidden:self.chx_prefersNavigationBarHidden
-                                                       animated:YES];
+                                           prefersHidden:self.chx_prefersNavigationBarHidden
+                                                animated:YES];
 }
 
 - (void)_chx_hiddenNavigationBarDependsOnCurrentHidden:(BOOL)hidden
@@ -136,10 +147,45 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
     }
 }
 
+- (void)_chx_hiddenNavigationBarHairlineIfNeeded
+{
+    UIView *hariline = [self _chx_findNavigationBarHairline];
+    if (!hariline) {
+        return;
+    }
+    
+    BOOL hidden = hariline.hidden;
+    BOOL prefers = self.chx_prefersNavigationBarHairlineHidden;
+    if (prefers && !hidden) {
+        hariline.hidden = YES;
+    }
+    if (!prefers && hidden) {
+        hariline.hidden = NO;
+    }
+}
+
 - (void)_chx_setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:hidden animated:animated];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
+- (UIView *)_chx_findNavigationBarHairline {
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    Class clazz = NSClassFromString(@"_UINavigationBarBackground");
+    
+    for (UIView *subview in [navigationBar subviews]) {
+        if ([subview isKindOfClass:clazz]) {
+            for (UIView *line in [subview subviews]) {
+                if ([line isKindOfClass:[UIImageView class]] &&
+                    line.frame.size.height == 1.0f / [UIScreen mainScreen].scale) {
+                    return line;
+                }
+            }
+        }
+    }
+    
+    return nil;
 }
 
 @end
