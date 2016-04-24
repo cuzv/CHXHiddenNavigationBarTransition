@@ -23,6 +23,6 @@ class NextViewController: UIViewController {
 //        chx_prefersNavigationBarHidden = !chx_prefersNavigationBarHidden
 //        chx_setNavigationBarHidden(!chx_prefersNavigationBarHidden, animated: true)
 //        chx_prefersStatusBarHidden = !chx_prefersStatusBarHidden
-        chx_prefersNavigationBarHairlineHidden = !chx_prefersNavigationBarHairlineHidden
+//        chx_prefersNavigationBarHairlineHidden = !chx_prefersNavigationBarHairlineHidden
     }
  }

@@ -147,6 +147,12 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
     }
 }
 
+- (void)_chx_setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:hidden animated:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
 - (void)_chx_hiddenNavigationBarHairlineIfNeeded
 {
     UIView *hariline = [self _chx_findNavigationBarHairline];
@@ -162,12 +168,6 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
     if (!prefers && hidden) {
         hariline.hidden = NO;
     }
-}
-
-- (void)_chx_setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:hidden animated:animated];
-    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 - (UIView *)_chx_findNavigationBarHairline {
