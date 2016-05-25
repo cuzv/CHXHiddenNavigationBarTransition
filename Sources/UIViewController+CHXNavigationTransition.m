@@ -1,6 +1,6 @@
 //
-//  UIViewController+CHXHiddenNavigationBarTransition.m
-//  CHXHiddenNavigationBarTransition
+//  UIViewController+CHXNavigationTransition.m
+//  CHXNavigationTransition
 //
 //  Created by Moch Xiao on 4/20/16.
 //  Copyright © @2016 Moch Xiao (http://mochxiao.com).
@@ -24,12 +24,12 @@
 //  THE SOFTWARE.
 //
 
-#import "UIViewController+CHXHiddenNavigationBarTransition.h"
+#import "UIViewController+CHXNavigationTransition.h"
 #import <objc/runtime.h>
 
-void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideSelector);
+extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideSelector);
 
-@implementation UIViewController (CHXHiddenNavigationBarTransition)
+@implementation UIViewController (CHXNavigationTransition)
 
 #pragma mark - Hook
 
@@ -52,6 +52,7 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
     [self setNeedsStatusBarAppearanceUpdate];
     [self _chx_hiddenNavigationBarHairlineIfNeeded];
     [self _chx_viewDidAppear:animated];
+
 }
 
 - (UIStatusBarStyle)_chx_preferredStatusBarStyle {
@@ -75,7 +76,10 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
 }
 
 - (void)setChx_prefersStatusBarHidden:(BOOL)chx_prefersStatusBarHidden {
-    objc_setAssociatedObject(self, @selector(chx_prefersStatusBarHidden), @(chx_prefersStatusBarHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self,
+                             @selector(chx_prefersStatusBarHidden),
+                             @(chx_prefersStatusBarHidden),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.view.window) {
         [self setNeedsStatusBarAppearanceUpdate];
     }
@@ -86,7 +90,10 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
 }
 
 - (void)setChx_prefersStatusBarStyle:(UIStatusBarStyle)chx_prefersStatusBarStyle {
-    objc_setAssociatedObject(self, @selector(chx_prefersStatusBarStyle), @(chx_prefersStatusBarStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self,
+                             @selector(chx_prefersStatusBarStyle),
+                             @(chx_prefersStatusBarStyle),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.view.window) {
         [self setNeedsStatusBarAppearanceUpdate];
     }
@@ -97,7 +104,10 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
 }
 
 - (void)setChx_prefersNavigationBarHidden:(BOOL)chx_prefersNavigationBarHidden {
-    objc_setAssociatedObject(self, @selector(chx_prefersNavigationBarHidden), @(chx_prefersNavigationBarHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self,
+                             @selector(chx_prefersNavigationBarHidden),
+                             @(chx_prefersNavigationBarHidden),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.view.window) {
         [self _chx_hiddenNavigationBarDependsOnCurrentHidden:self.navigationController.navigationBarHidden
                                                prefersHidden:chx_prefersNavigationBarHidden
@@ -115,7 +125,10 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
 }
 
 - (void)setChx_prefersNavigationBarHairlineHidden:(BOOL)chx_prefersNavigationBarHairlineHidden {
-    objc_setAssociatedObject(self, @selector(chx_prefersNavigationBarHairlineHidden), @(chx_prefersNavigationBarHairlineHidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self,
+                             @selector(chx_prefersNavigationBarHairlineHidden),
+                             @(chx_prefersNavigationBarHairlineHidden),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     if (self.view.window) {
         [self _chx_hiddenNavigationBarHairlineIfNeeded];
     }
@@ -149,12 +162,9 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
 
 - (void)_chx_setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:hidden animated:animated];
-    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
-- (void)_chx_hiddenNavigationBarHairlineIfNeeded
-{
+- (void)_chx_hiddenNavigationBarHairlineIfNeeded {
     UIView *hariline = [self _chx_findNavigationBarHairline];
     if (!hariline) {
         return;
@@ -188,16 +198,15 @@ void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideS
     return nil;
 }
 
-@end
-
-#pragma mark - Swizzle
-
-void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideSelector) {
-    Method originalMethod = class_getInstanceMethod(clazz, originalSelector);
-    Method overrideMethod = class_getInstanceMethod(clazz, overrideSelector);
-    if (class_addMethod(clazz, originalSelector, method_getImplementation(overrideMethod), method_getTypeEncoding(overrideMethod))) {
-        class_replaceMethod(clazz, overrideSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
-    } else {
-        method_exchangeImplementations(originalMethod, overrideMethod);
-    }
+- (BOOL)chx_prefersInteractivePopGestureRecognizerDisabled {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
+
+- (void)setChx_prefersInteractivePopGestureRecognizerDisabled:(BOOL)chx_prefersInteractivePopGestureRecognizerDisabled {
+    objc_setAssociatedObject(self,
+                             @selector(chx_prefersInteractivePopGestureRecognizerDisabled),
+                             @(chx_prefersInteractivePopGestureRecognizerDisabled),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end

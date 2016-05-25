@@ -1,6 +1,6 @@
 //
-//  UIViewController+CHXHiddenNavigationBarTransition.h
-//  CHXHiddenNavigationBarTransition
+//  UIViewController+CHXNavigationTransition.h
+//  CHXNavigationTransition
 //
 //  Created by Moch Xiao on 4/20/16.
 //  Copyright © @2016 Moch Xiao (http://mochxiao.com).
@@ -27,7 +27,7 @@
 #import <UIKit/UIKit.h>
 
 /// All thoese settings only affect current view controller.
-@interface UIViewController (CHXHiddenNavigationBarTransition) <UIGestureRecognizerDelegate>
+@interface UIViewController (CHXNavigationTransition) <UIGestureRecognizerDelegate>
 
 /// Change status bar style, will update immediately when  self's view on window.
 /// Otherwise when `viewDidAppear:`.
@@ -56,6 +56,10 @@
 /// If controller's view on window, will update immediately.
 /// Affect current view controller.
 @property (nonatomic, assign) BOOL chx_prefersNavigationBarHairlineHidden;
+
+/// Disable pop interactive animation, default value is NO.
+/// Affect current view controller.
+@property (nonatomic, assign) BOOL chx_prefersInteractivePopGestureRecognizerDisabled;
 
 @end
 

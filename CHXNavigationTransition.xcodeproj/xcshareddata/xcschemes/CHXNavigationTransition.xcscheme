@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "461370511CC72B3B00B01D18"
-               BuildableName = "CHXHiddenNavigationBarTransition.framework"
-               BlueprintName = "CHXHiddenNavigationBarTransition"
-               ReferencedContainer = "container:CHXHiddenNavigationBarTransition.xcodeproj">
+               BuildableName = "CHXNavigationTransition.framework"
+               BlueprintName = "CHXNavigationTransition"
+               ReferencedContainer = "container:CHXNavigationTransition.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "461370511CC72B3B00B01D18"
-            BuildableName = "CHXHiddenNavigationBarTransition.framework"
-            BlueprintName = "CHXHiddenNavigationBarTransition"
-            ReferencedContainer = "container:CHXHiddenNavigationBarTransition.xcodeproj">
+            BuildableName = "CHXNavigationTransition.framework"
+            BlueprintName = "CHXNavigationTransition"
+            ReferencedContainer = "container:CHXNavigationTransition.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "461370511CC72B3B00B01D18"
-            BuildableName = "CHXHiddenNavigationBarTransition.framework"
-            BlueprintName = "CHXHiddenNavigationBarTransition"
-            ReferencedContainer = "container:CHXHiddenNavigationBarTransition.xcodeproj">
+            BuildableName = "CHXNavigationTransition.framework"
+            BlueprintName = "CHXNavigationTransition"
+            ReferencedContainer = "container:CHXNavigationTransition.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

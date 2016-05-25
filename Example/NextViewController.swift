@@ -1,13 +1,13 @@
 //
 //  NextViewController.swift
-//  CHXHiddenNavigationBarTransition
+//  CHXNavigationTransition
 //
 //  Created by Moch Xiao on 4/20/16.
 //  Copyright © 2016 Moch. All rights reserved.
 //
 
 import UIKit
-import CHXHiddenNavigationBarTransition
+import CHXNavigationTransition
 
 class NextViewController: UIViewController {
 
@@ -16,6 +16,7 @@ class NextViewController: UIViewController {
 
         chx_prefersNavigationBarHidden = false
         chx_prefersNavigationBarHairlineHidden = true
+        chx_prefersInteractivePopGestureRecognizerDisabled = true
     }
 
     

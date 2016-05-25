@@ -1,5 +1,12 @@
-# CHXHiddenNavigationBarTransition
-Deal with navigation bar and status bar animation when some page set navigation bar hidden or change status bar style.
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/cuzv/PhotoBrowser/blob/master/LICENSE)
+[![CocoaPods Compatible](https://img.shields.io/badge/CocoaPods-v0.4.0-green.svg)](https://github.com/CocoaPods/CocoaPods)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Weibo](https://img.shields.io/badge/Weibo-cuzval-yellowgreen.svg)](http://weibo.com/cuzval/)
+[![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](http://twitter.com/mochxiao)
+
+# CHXNavigationTransition
+
+Deal with navigation bar and status bar animation when some page set navigation bar hidden or change status bar style. Enable slide-back when you use leftBarButtonItem.
 
 
 

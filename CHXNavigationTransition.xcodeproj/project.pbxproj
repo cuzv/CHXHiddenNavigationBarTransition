@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		461370561CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 461370551CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		461370751CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 461370731CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		461370761CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 461370741CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.m */; };
+		461370561CC72B3B00B01D18 /* CHXNavigationTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 461370551CC72B3B00B01D18 /* CHXNavigationTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		461370751CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 461370731CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		461370761CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 461370741CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.m */; };
 		461370951CC7303B00B01D18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461370941CC7303B00B01D18 /* AppDelegate.swift */; };
 		4613709A1CC7303B00B01D18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461370981CC7303B00B01D18 /* Main.storyboard */; };
 		4613709C1CC7303B00B01D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4613709B1CC7303B00B01D18 /* Assets.xcassets */; };
 		4613709F1CC7303B00B01D18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4613709D1CC7303B00B01D18 /* LaunchScreen.storyboard */; };
-		461370A41CC7305A00B01D18 /* CHXHiddenNavigationBarTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461370521CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.framework */; };
-		461370A51CC7305A00B01D18 /* CHXHiddenNavigationBarTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 461370521CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		461370A41CC7305A00B01D18 /* CHXNavigationTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461370521CC72B3B00B01D18 /* CHXNavigationTransition.framework */; };
+		461370A51CC7305A00B01D18 /* CHXNavigationTransition.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 461370521CC72B3B00B01D18 /* CHXNavigationTransition.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		461370AA1CC730A200B01D18 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461370A91CC730A200B01D18 /* RootViewController.swift */; };
 		461370AC1CC730A800B01D18 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461370AB1CC730A800B01D18 /* NextViewController.swift */; };
+		4627F1B81CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 4627F1B61CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4627F1B91CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4627F1B71CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.m */; };
+		4627F1BD1CF5F0F600F08331 /* CHXNavigationTransitionHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4627F1BB1CF5F0F600F08331 /* CHXNavigationTransitionHelpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				461370A51CC7305A00B01D18 /* CHXHiddenNavigationBarTransition.framework in Embed Frameworks */,
+				461370A51CC7305A00B01D18 /* CHXNavigationTransition.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,11 +48,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		461370521CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHXHiddenNavigationBarTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		461370551CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHXHiddenNavigationBarTransition.h; sourceTree = "<group>"; };
+		461370521CC72B3B00B01D18 /* CHXNavigationTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHXNavigationTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		461370551CC72B3B00B01D18 /* CHXNavigationTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHXNavigationTransition.h; sourceTree = "<group>"; };
 		461370571CC72B3B00B01D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		461370731CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CHXHiddenNavigationBarTransition.h"; sourceTree = "<group>"; };
-		461370741CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CHXHiddenNavigationBarTransition.m"; sourceTree = "<group>"; };
+		461370731CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CHXNavigationTransition.h"; sourceTree = "<group>"; };
+		461370741CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CHXNavigationTransition.m"; sourceTree = "<group>"; };
 		461370921CC7303B00B01D18 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		461370941CC7303B00B01D18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		461370991CC7303B00B01D18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +61,9 @@
 		461370A01CC7303B00B01D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		461370A91CC730A200B01D18 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		461370AB1CC730A800B01D18 /* NextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
+		4627F1B61CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CHXNavigationTransition.h"; sourceTree = "<group>"; };
+		4627F1B71CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CHXNavigationTransition.m"; sourceTree = "<group>"; };
+		4627F1BB1CF5F0F600F08331 /* CHXNavigationTransitionHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHXNavigationTransitionHelpers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				461370A41CC7305A00B01D18 /* CHXHiddenNavigationBarTransition.framework in Frameworks */,
+				461370A41CC7305A00B01D18 /* CHXNavigationTransition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +97,7 @@
 		461370531CC72B3B00B01D18 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				461370521CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.framework */,
+				461370521CC72B3B00B01D18 /* CHXNavigationTransition.framework */,
 				461370921CC7303B00B01D18 /* Example.app */,
 			);
 			name = Products;
@@ -100,10 +106,13 @@
 		461370541CC72B3B00B01D18 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				461370731CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.h */,
-				461370741CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.m */,
-				461370551CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.h */,
 				461370571CC72B3B00B01D18 /* Info.plist */,
+				461370551CC72B3B00B01D18 /* CHXNavigationTransition.h */,
+				461370731CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.h */,
+				461370741CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.m */,
+				4627F1B61CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.h */,
+				4627F1B71CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.m */,
+				4627F1BB1CF5F0F600F08331 /* CHXNavigationTransitionHelpers.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -129,17 +138,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				461370751CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.h in Headers */,
-				461370561CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.h in Headers */,
+				461370561CC72B3B00B01D18 /* CHXNavigationTransition.h in Headers */,
+				4627F1B81CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.h in Headers */,
+				461370751CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		461370511CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition */ = {
+		461370511CC72B3B00B01D18 /* CHXNavigationTransition */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4613705A1CC72B3B00B01D18 /* Build configuration list for PBXNativeTarget "CHXHiddenNavigationBarTransition" */;
+			buildConfigurationList = 4613705A1CC72B3B00B01D18 /* Build configuration list for PBXNativeTarget "CHXNavigationTransition" */;
 			buildPhases = (
 				4613704D1CC72B3B00B01D18 /* Sources */,
 				4613704E1CC72B3B00B01D18 /* Frameworks */,
@@ -150,9 +160,9 @@
 			);
 			dependencies = (
 			);
-			name = CHXHiddenNavigationBarTransition;
+			name = CHXNavigationTransition;
 			productName = CHXHiddenNavigationBarTransition;
-			productReference = 461370521CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition.framework */;
+			productReference = 461370521CC72B3B00B01D18 /* CHXNavigationTransition.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		461370911CC7303B00B01D18 /* Example */ = {
@@ -192,7 +202,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4613704C1CC72B3B00B01D18 /* Build configuration list for PBXProject "CHXHiddenNavigationBarTransition" */;
+			buildConfigurationList = 4613704C1CC72B3B00B01D18 /* Build configuration list for PBXProject "CHXNavigationTransition" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -205,7 +215,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				461370511CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition */,
+				461370511CC72B3B00B01D18 /* CHXNavigationTransition */,
 				461370911CC7303B00B01D18 /* Example */,
 			);
 		};
@@ -236,7 +246,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				461370761CC72B7E00B01D18 /* UIViewController+CHXHiddenNavigationBarTransition.m in Sources */,
+				4627F1B91CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.m in Sources */,
+				461370761CC72B7E00B01D18 /* UIViewController+CHXNavigationTransition.m in Sources */,
+				4627F1BD1CF5F0F600F08331 /* CHXNavigationTransitionHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +267,7 @@
 /* Begin PBXTargetDependency section */
 		461370A71CC7305A00B01D18 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 461370511CC72B3B00B01D18 /* CHXHiddenNavigationBarTransition */;
+			target = 461370511CC72B3B00B01D18 /* CHXNavigationTransition */;
 			targetProxy = 461370A61CC7305A00B01D18 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -381,7 +393,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mochxiao.CHXHiddenNavigationBarTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mochxiao.CHXNavigationTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -398,7 +410,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mochxiao.CHXHiddenNavigationBarTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mochxiao.CHXNavigationTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -432,7 +444,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4613704C1CC72B3B00B01D18 /* Build configuration list for PBXProject "CHXHiddenNavigationBarTransition" */ = {
+		4613704C1CC72B3B00B01D18 /* Build configuration list for PBXProject "CHXNavigationTransition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				461370581CC72B3B00B01D18 /* Debug */,
@@ -441,13 +453,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4613705A1CC72B3B00B01D18 /* Build configuration list for PBXNativeTarget "CHXHiddenNavigationBarTransition" */ = {
+		4613705A1CC72B3B00B01D18 /* Build configuration list for PBXNativeTarget "CHXNavigationTransition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4613705B1CC72B3B00B01D18 /* Debug */,
 				4613705C1CC72B3B00B01D18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		461370A11CC7303B00B01D18 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +469,7 @@
 				461370A31CC7303B00B01D18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

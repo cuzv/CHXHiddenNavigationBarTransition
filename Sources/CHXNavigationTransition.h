@@ -1,6 +1,6 @@
 //
-//  CHXHiddenNavigationBarTransition.h
-//  CHXHiddenNavigationBarTransition
+//  CHXNavigationTransition.h
+//  CHXNavigationTransition
 //
 //  Created by Moch Xiao on 4/20/16.
 //  Copyright © @2016 Moch Xiao (http://mochxiao.com).
@@ -26,13 +26,14 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for CHXHiddenNavigationBarTransition.
-FOUNDATION_EXPORT double CHXHiddenNavigationBarTransitionVersionNumber;
+//! Project version number for CHXNavigationTransition.
+FOUNDATION_EXPORT double CHXNavigationTransitionVersionNumber;
 
-//! Project version string for CHXHiddenNavigationBarTransition.
-FOUNDATION_EXPORT const unsigned char CHXHiddenNavigationBarTransitionVersionString[];
+//! Project version string for CHXNavigationTransition.
+FOUNDATION_EXPORT const unsigned char CHXNavigationTransitionVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <CHXHiddenNavigationBarTransition/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <CHXNavigationTransition/PublicHeader.h>
 
 
-#import <CHXHiddenNavigationBarTransition/UIViewController+CHXHiddenNavigationBarTransition.h>
+#import <CHXNavigationTransition/UIViewController+CHXNavigationTransition.h>
+#import <CHXNavigationTransition/UINavigationController+CHXNavigationTransition.h>

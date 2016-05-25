@@ -1,13 +1,13 @@
 //
 //  RootViewController.swift
-//  CHXHiddenNavigationBarTransition
+//  CHXNavigationTransition
 //
 //  Created by Moch Xiao on 4/20/16.
 //  Copyright © 2016 Moch. All rights reserved.
 //
 
 import UIKit
-import CHXHiddenNavigationBarTransition
+import CHXNavigationTransition
 
 class RootViewController: UIViewController {
 
@@ -17,7 +17,18 @@ class RootViewController: UIViewController {
         view.backgroundColor = UIColor.cyanColor()
         
         chx_prefersStatusBarStyle = .LightContent
-//        chx_prefersNavigationBarHidden = true
+        chx_prefersNavigationBarHidden = true
+        navigationController?.chx_interactivePopGestureRecognizerEnable = true
     }
 
+    @IBAction func handlePushAction(sender: AnyObject) {
+        let controller = NextViewController()
+        controller.view.backgroundColor = UIColor.orangeColor()
+        controller.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(RootViewController.back(_:)))
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    internal dynamic func back(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }
