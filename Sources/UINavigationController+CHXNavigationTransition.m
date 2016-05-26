@@ -31,7 +31,6 @@
 extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideSelector);
 
 @interface UINavigationController() <UIGestureRecognizerDelegate>
-@property (nonatomic, strong, readonly) UIScreenEdgePanGestureRecognizer *chx_interactivePopGestureRecognizer;
 @end
 
 @implementation UINavigationController (CHXNavigationTransition)
@@ -41,60 +40,34 @@ extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL ov
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _chx_swizzleInstanceMethod([self class], @selector(pushViewController:animated:), @selector(_chx_pushViewController:animated:));
+        _chx_swizzleInstanceMethod([self class], @selector(viewDidLoad), @selector(_chx_viewDidLoad));
     });
 }
 
-// stolen from https://github.com/forkingdog/FDFullscreenPopGesture
-- (void)_chx_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if (self.chx_interactivePopGestureRecognizerEnable &&
-        ![self.interactivePopGestureRecognizer.view.gestureRecognizers containsObject:self.chx_interactivePopGestureRecognizer]) {
-         // Add our own gesture recognizer to where the onboard screen edge pan gesture recognizer is attached to.
-        [self.interactivePopGestureRecognizer.view addGestureRecognizer:self.chx_interactivePopGestureRecognizer];
-        
-        // Forward the gesture events to the private handler of the onboard gesture recognizer.
-        NSArray *internalTargets = [self.interactivePopGestureRecognizer valueForKey:@"targets"];
-        [self.chx_interactivePopGestureRecognizer addTarget:[internalTargets.firstObject valueForKey:@"target"]
-                                                     action:NSSelectorFromString(@"handleNavigationTransition:")];
-        self.chx_interactivePopGestureRecognizer.delegate = self;
-        
-        // Disable the onboard gesture recognizer.
-        self.interactivePopGestureRecognizer.enabled = NO;
+- (void)_chx_viewDidLoad {
+    if (self.chx_interactivePopGestureRecognizerEnable) {
+        self.interactivePopGestureRecognizer.delegate = self;
     }
-    
-    // Forward to primary implementation.
-    if (![self.viewControllers containsObject:viewController]) {
-        [self _chx_pushViewController:viewController animated:animated];
-    }
+    [self _chx_viewDidLoad];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    if (self.viewControllers.count <= 1) {
+    NSArray<__kindof UIViewController *> *viewControllers = self.viewControllers;
+    if (viewControllers.count <= 1) {
+        return NO;
+    }
+    if (viewControllers.lastObject.chx_prefersInteractivePopGestureRecognizerDisabled) {
         return NO;
     }
     if ([[self valueForKey:@"_isTransitioning"] boolValue]) {
-        return NO;
-    }
-    if (self.viewControllers.lastObject.chx_prefersInteractivePopGestureRecognizerDisabled) {
         return NO;
     }
     return YES;
 }
 
 #pragma mark - Accessor
-
-- (UIScreenEdgePanGestureRecognizer *)chx_interactivePopGestureRecognizer {
-    UIScreenEdgePanGestureRecognizer *gesture = objc_getAssociatedObject(self, _cmd);
-    if (!gesture) {
-        gesture = [UIScreenEdgePanGestureRecognizer new];
-        gesture.edges = UIRectEdgeLeft;
-        gesture.maximumNumberOfTouches = 1;
-        objc_setAssociatedObject(self, _cmd, gesture, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return gesture;
-}
 
 - (BOOL)chx_interactivePopGestureRecognizerEnable {
     return [objc_getAssociatedObject(self, _cmd) boolValue];

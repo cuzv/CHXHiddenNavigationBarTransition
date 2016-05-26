@@ -16,7 +16,7 @@ class NextViewController: UIViewController {
 
         chx_prefersNavigationBarHidden = false
         chx_prefersNavigationBarHairlineHidden = true
-        chx_prefersInteractivePopGestureRecognizerDisabled = true
+//        chx_prefersInteractivePopGestureRecognizerDisabled = true
     }
 
     

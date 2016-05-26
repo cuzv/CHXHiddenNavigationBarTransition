@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "CHXNavigationTransition"
-  s.version = "0.4.0"
+  s.version = "0.4.1"
   s.license = "MIT"
   s.summary = "Deal with navigation bar and status bar animation when some page set navigation bar hidden or change status bar style."
   s.homepage = "https://github.com/cuzv/CHXNavigationTransition"
