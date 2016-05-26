@@ -45,7 +45,7 @@ extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL ov
 }
 
 - (void)_chx_viewDidLoad {
-    if (self.chx_interactivePopGestureRecognizerEnable) {
+    if (self.chx_interactivePopGestureRecognizerEnabled) {
         self.interactivePopGestureRecognizer.delegate = self;
     }
     [self _chx_viewDidLoad];
@@ -69,14 +69,14 @@ extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL ov
 
 #pragma mark - Accessor
 
-- (BOOL)chx_interactivePopGestureRecognizerEnable {
+- (BOOL)chx_interactivePopGestureRecognizerEnabled {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
-- (void)setChx_interactivePopGestureRecognizerEnable:(BOOL)chx_interactivePopGestureRecognizerEnable {
+- (void)setChx_interactivePopGestureRecognizerEnabled:(BOOL)chx_interactivePopGestureRecognizerEnabled {
     objc_setAssociatedObject(self,
-                             @selector(chx_interactivePopGestureRecognizerEnable),
-                             @(chx_interactivePopGestureRecognizerEnable),
+                             @selector(chx_interactivePopGestureRecognizerEnabled),
+                             @(chx_interactivePopGestureRecognizerEnabled),
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

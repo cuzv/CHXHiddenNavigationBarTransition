@@ -18,7 +18,7 @@ class RootViewController: UIViewController {
         
         chx_prefersStatusBarStyle = .LightContent
         chx_prefersNavigationBarHidden = true
-        navigationController?.chx_interactivePopGestureRecognizerEnable = true
+        navigationController?.chx_interactivePopGestureRecognizerEnabled = true
     }
 
     @IBAction func handlePushAction(sender: AnyObject) {

@@ -25,5 +25,11 @@ class NextViewController: UIViewController {
 //        chx_setNavigationBarHidden(!chx_prefersNavigationBarHidden, animated: true)
 //        chx_prefersStatusBarHidden = !chx_prefersStatusBarHidden
 //        chx_prefersNavigationBarHairlineHidden = !chx_prefersNavigationBarHairlineHidden
+        
+        let controller = NextViewController()
+        controller.view.backgroundColor = UIColor.orangeColor()
+//        controller.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(RootViewController.back(_:)))
+        self.navigationController?.pushViewController(controller, animated: true)
+
     }
  }

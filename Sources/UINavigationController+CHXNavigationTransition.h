@@ -28,5 +28,5 @@
 
 @interface UINavigationController (CHXNavigationTransition)
 /// Enable slide-back when you use leftBarButtonItem, default value is NO;
-@property (nonatomic, assign) BOOL chx_interactivePopGestureRecognizerEnable;
+@property (nonatomic, assign) BOOL chx_interactivePopGestureRecognizerEnabled;
 @end

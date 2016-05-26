@@ -58,7 +58,7 @@
 @property (nonatomic, assign) BOOL chx_prefersNavigationBarHairlineHidden;
 
 /// Disable pop interactive animation, default value is NO.
-/// Affect current view controller when self.navigationController.chx_interactivePopGestureRecognizerEnable = YES.
+/// Affect current view controller when self.navigationController.chx_interactivePopGestureRecognizerEnabled = YES.
 @property (nonatomic, assign) BOOL chx_prefersInteractivePopGestureRecognizerDisabled;
 
 @end
