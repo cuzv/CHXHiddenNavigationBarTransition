@@ -31,6 +31,7 @@
 extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL overrideSelector);
 
 @interface UINavigationController() <UIGestureRecognizerDelegate>
+@property (nonatomic, assign) BOOL chx_haveSetupDelegate;
 @end
 
 @implementation UINavigationController (CHXNavigationTransition)
@@ -40,15 +41,21 @@ extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL ov
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _chx_swizzleInstanceMethod([self class], @selector(viewDidLoad), @selector(_chx_viewDidLoad));
+        _chx_swizzleInstanceMethod([self class],
+                                   @selector(pushViewController:animated:),
+                                   @selector(_chx_pushViewController:animated:));
     });
 }
 
-- (void)_chx_viewDidLoad {
-    if (self.chx_interactivePopGestureRecognizerEnabled) {
+- (void)_chx_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (self.chx_interactivePopGestureRecognizerEnabled && !self.chx_haveSetupDelegate) {
         self.interactivePopGestureRecognizer.delegate = self;
+        self.chx_haveSetupDelegate = YES;
     }
-    [self _chx_viewDidLoad];
+    
+    if (![self.viewControllers containsObject:viewController]) {
+        [self _chx_pushViewController:viewController animated:animated];
+    }
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -68,6 +75,17 @@ extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL ov
 }
 
 #pragma mark - Accessor
+
+- (BOOL)chx_haveSetupDelegate {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setChx_haveSetupDelegate:(BOOL)chx_haveSetupDelegate {
+    objc_setAssociatedObject(self,
+                             @selector(chx_haveSetupDelegate),
+                             @(chx_haveSetupDelegate),
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 - (BOOL)chx_interactivePopGestureRecognizerEnabled {
     return [objc_getAssociatedObject(self, _cmd) boolValue];

@@ -27,6 +27,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UINavigationController (CHXNavigationTransition)
-/// Enable slide-back when you use leftBarButtonItem, default value is NO;
+/// Enable slide-back when you use leftBarButtonItem or hide navigationBar, default value is NO;
 @property (nonatomic, assign) BOOL chx_interactivePopGestureRecognizerEnabled;
 @end

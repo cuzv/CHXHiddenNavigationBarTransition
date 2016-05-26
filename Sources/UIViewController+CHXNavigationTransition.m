@@ -36,10 +36,18 @@ extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL ov
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _chx_swizzleInstanceMethod([self class], @selector(viewWillAppear:), @selector(_chx_viewWillAppear:));
-        _chx_swizzleInstanceMethod([self class], @selector(viewDidAppear:), @selector(_chx_viewDidAppear:));
-        _chx_swizzleInstanceMethod([self class], @selector(preferredStatusBarStyle), @selector(_chx_preferredStatusBarStyle));
-        _chx_swizzleInstanceMethod([self class], @selector(prefersStatusBarHidden), @selector(_chx_prefersStatusBarHidden));
+        _chx_swizzleInstanceMethod([self class],
+                                   @selector(viewWillAppear:),
+                                   @selector(_chx_viewWillAppear:));
+        _chx_swizzleInstanceMethod([self class],
+                                   @selector(viewDidAppear:),
+                                   @selector(_chx_viewDidAppear:));
+        _chx_swizzleInstanceMethod([self class],
+                                   @selector(preferredStatusBarStyle),
+                                   @selector(_chx_preferredStatusBarStyle));
+        _chx_swizzleInstanceMethod([self class],
+                                   @selector(prefersStatusBarHidden),
+                                   @selector(_chx_prefersStatusBarHidden));
     });
 }
 

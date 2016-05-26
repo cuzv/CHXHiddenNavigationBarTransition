@@ -15,7 +15,3 @@ Deal with navigation bar and status bar animation when some page set navigation 
 
 -   Rename to `CHXNavigationTransition`.
 -   Add Enable slide-back when you use leftBarButtonItem function.
-
-### 0.4.1
-
-- use system `interactivePopGestureRecognizer` instead of custom gesutre recognizer.
