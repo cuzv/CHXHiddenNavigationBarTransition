@@ -190,10 +190,11 @@ extern void _chx_swizzleInstanceMethod(Class clazz, SEL originalSelector, SEL ov
 
 - (UIView *)_chx_findNavigationBarHairline {
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
-    Class clazz = NSClassFromString(@"_UINavigationBarBackground");
+    Class clazz1 = NSClassFromString(@"_UINavigationBarBackground");
+    Class clazz2 = NSClassFromString(@"_UIBarBackground");
     
     for (UIView *subview in [navigationBar subviews]) {
-        if ([subview isKindOfClass:clazz]) {
+        if ([subview isKindOfClass:clazz1] || [subview isKindOfClass:clazz2]) {
             for (UIView *line in [subview subviews]) {
                 if ([line isKindOfClass:[UIImageView class]] &&
                     line.frame.size.height == 1.0f / [UIScreen mainScreen].scale) {
