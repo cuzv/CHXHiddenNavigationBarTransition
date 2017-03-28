@@ -8,26 +8,13 @@
 
 Deal with navigation bar and status bar animation when some page set navigation bar hidden or change status bar style. Enable slide-back when you use leftBarButtonItem.
 
+### Deprecated
+
+Replace by [RRNavigationBar](https://github.com/cuzv/RRNavigationBar).
 
 
-ViewController preferredStatusBarStyle() 设置生效的前置条件
+
+ViewController preferredStatusBarStyle 设置生效的前置条件
 
 - Info.plis -> View controller-based status bar appearance -> YES
-- navigationBarHidden = true
-
-
-NavigationBar 没有隐藏的时候设置 preferredStatusBarStyle 无效。
-NavigationBar 隐藏后才会根据 preferredStatusBarStyle 来更新状态栏
-
-override preferredStatusBarStyle 记得调用 super
-
-
-```
- override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        super.preferredStatusBarStyle()
-        return .Default
- }
-```
-
-**注意**：不要覆盖该方法，请直接使用 `chx_prefersdStatusBarStyle` 属性.
-
+- 当 ViewController 处于 NavigationController stack 中时设置 preferredStatusBarStyle 无效，是因为获取到 NavigationController 的 preferredStatusBarStyle 了

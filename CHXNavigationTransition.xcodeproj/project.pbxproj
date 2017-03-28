@@ -21,6 +21,7 @@
 		4627F1B81CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 4627F1B61CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4627F1B91CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4627F1B71CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.m */; };
 		4627F1BD1CF5F0F600F08331 /* CHXNavigationTransitionHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4627F1BB1CF5F0F600F08331 /* CHXNavigationTransitionHelpers.m */; };
+		4692E3E41E7AC7AE00C53A89 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692E3E31E7AC7AE00C53A89 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		4627F1B61CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CHXNavigationTransition.h"; sourceTree = "<group>"; };
 		4627F1B71CF5F0AD00F08331 /* UINavigationController+CHXNavigationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CHXNavigationTransition.m"; sourceTree = "<group>"; };
 		4627F1BB1CF5F0F600F08331 /* CHXNavigationTransitionHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHXNavigationTransitionHelpers.m; sourceTree = "<group>"; };
+		4692E3E31E7AC7AE00C53A89 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				461370941CC7303B00B01D18 /* AppDelegate.swift */,
 				461370A91CC730A200B01D18 /* RootViewController.swift */,
 				461370AB1CC730A800B01D18 /* NextViewController.swift */,
+				4692E3E31E7AC7AE00C53A89 /* TableViewController.swift */,
 				461370981CC7303B00B01D18 /* Main.storyboard */,
 				4613709B1CC7303B00B01D18 /* Assets.xcassets */,
 				4613709D1CC7303B00B01D18 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 				461370AC1CC730A800B01D18 /* NextViewController.swift in Sources */,
 				461370951CC7303B00B01D18 /* AppDelegate.swift in Sources */,
 				461370AA1CC730A200B01D18 /* RootViewController.swift in Sources */,
+				4692E3E41E7AC7AE00C53A89 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

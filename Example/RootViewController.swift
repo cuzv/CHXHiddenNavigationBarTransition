@@ -14,21 +14,21 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.cyanColor()
+        view.backgroundColor = UIColor.cyan
         
-        chx_prefersStatusBarStyle = .LightContent
-        chx_prefersNavigationBarHidden = true
+        chx_prefersStatusBarStyle = .lightContent
+//        chx_prefersNavigationBarHidden = true
         navigationController?.chx_interactivePopGestureRecognizerEnabled = true
     }
 
-    @IBAction func handlePushAction(sender: AnyObject) {
-        let controller = NextViewController()
-        controller.view.backgroundColor = UIColor.orangeColor()
-        controller.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(RootViewController.back(_:)))
+    @IBAction func handlePush(_ sender: UIButton) {
+//        let controller = NextViewController()
+        let controller = TableViewController()
+        controller.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(back(sender:)))
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
     internal dynamic func back(sender: UIBarButtonItem) {
-        self.navigationController?.popViewControllerAnimated(true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }
