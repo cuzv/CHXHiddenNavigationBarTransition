@@ -15,17 +15,17 @@ ViewController preferredStatusBarStyle() 设置生效的前置条件
 - Info.plis -> View controller-based status bar appearance -> YES
 - navigationBarHidden = true
 
-
-NavigationBar 没有隐藏的时候设置 preferredStatusBarStyle 无效。
-NavigationBar 隐藏后才会根据 preferredStatusBarStyle 来更新状态栏
+以下组合才会生效：
+- vc.preferredStatusBarStyle == UIStatusBarStyleLightContent && navigationBar.barStyle == UIBarStyleBlack
+- vc.preferredStatusBarStyle == UIStatusBarStyleDefault && navigationBar.barStyle == UIBarStyleDefault
+- NavigationBar 隐藏后会根据 preferredStatusBarStyle 来更新状态栏
 
 override preferredStatusBarStyle 记得调用 super
-
 
 ```
  override func preferredStatusBarStyle() -> UIStatusBarStyle {
         super.preferredStatusBarStyle()
-        return .Default
+        return .default
  }
 ```
 
