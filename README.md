@@ -10,7 +10,7 @@ Deal with navigation bar and status bar animation when some page set navigation 
 
 ### Deprecated
 
-Replace by [RRNavigationBar](https://github.com/cuzv/RRNavigationBar).
+Replaced by [RRNavigationBar](https://github.com/cuzv/RRNavigationBar).
 
 
 
